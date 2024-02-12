@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../data/model/message_model.dart';
 
-class ChatServise extends ChangeNotifier{
+class ChatService extends ChangeNotifier{
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
@@ -16,17 +16,17 @@ class ChatServise extends ChangeNotifier{
 
 
 
-  Future<void>sendMessege(String receiverId,String message,String name)async{
+  Future<void>sendMessage(String receiverId,String message,String name)async{
     //get current user info
     final String currentUserId = _auth.currentUser!.uid;
     final String currentUserEmail = _auth.currentUser!.email.toString();
     final String currentUserName = _auth.currentUser!.displayName.toString();
-    final String currentuserimage = _auth.currentUser!.photoURL.toString();
+    final String currentUserImage = _auth.currentUser!.photoURL.toString();
     bool? unRead = true;
 
 
 
-    //create a new messege
+    //create a new message
     MessageModel messageModel= MessageModel(
       senderId: currentUserId,
       senderEmail: currentUserEmail,

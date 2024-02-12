@@ -11,7 +11,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/model/user_model.dart';
 
-class AuthServise extends ChangeNotifier {
+
+
+
+class AuthService extends ChangeNotifier {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -60,8 +63,8 @@ class AuthServise extends ChangeNotifier {
   String assetImage = "assetes/images/person01.png";
 
 
-  //create fun sgin in using fireAuth
-  Future<UserCredential> sginINWithEmailAndPassword(
+  //
+  Future<UserCredential> signINWithEmailAndPassword(
       String email, String password) async {
     try {
       UserCredential userCredential = await _firebaseAuth
@@ -81,7 +84,7 @@ class AuthServise extends ChangeNotifier {
     }
   }
 
-  Future<UserModel> sginUPWithEmailAndPassword(String name,
+  Future<UserModel> signUPWithEmailAndPassword(String name,
       String email, String password,String photoUrl) async {
     try {
       UserCredential userCredential = await _firebaseAuth

@@ -79,15 +79,15 @@ class RegisterViewModel {
       }
       if ( handelUploadImage.file == null) {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text("pleaes choose a image"),
+          content: Text("please choose a image"),
           backgroundColor: Colors.lightBlue,
         ));
         return;
       }
-      final authServise = Provider.of<AuthServise>(context, listen: false);
+      final authServise = Provider.of<AuthService>(context, listen: false);
       try {
         if (handelUploadImage.url != null) {
-          await authServise.sginUPWithEmailAndPassword(toName,toEmail, toPassword,handelUploadImage.url!);
+          await authServise.signUPWithEmailAndPassword(toName,toEmail, toPassword,handelUploadImage.url!);
 
         }
 

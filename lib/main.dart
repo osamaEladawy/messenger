@@ -7,7 +7,6 @@ import 'auth/internet_service.dart';
 import 'auth/profile_service.dart';
 import 'auth/service_auth.dart';
 import 'core/service/myservice.dart';
-import 'my_chat.dart';
 
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,13 +17,13 @@ Future<void> main() async{
 
       providers: [
 
-        ChangeNotifierProvider(create: (context) => AuthServise(),),
+        ChangeNotifierProvider(create: (context) => AuthService(),),
 
         ChangeNotifierProvider(create: (context) => InternetServise(),),
 
         ChangeNotifierProvider(create: (context) => ProfileServise(),),
 
-        ChangeNotifierProvider(create: (context) => ChatServise(),),
+        ChangeNotifierProvider(create: (context) => ChatService(),),
 
       ],
 

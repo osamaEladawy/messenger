@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var view = HomeViewNodel();
+    var view = HomeViewModel();
     return StatefulBuilder(
       builder:
           (BuildContext context, void Function(void Function()) setState) =>
@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
         body: WillPopScope(
           onWillPop: () {
             showDialog(
-              barrierDismissible: false,
+                barrierDismissible: false,
                 context: context,
                 builder: (context) => AlertDialog(
                       title: const Text(
@@ -47,7 +47,8 @@ class HomePage extends StatelessWidget {
                         textAlign: TextAlign.center,
                       ),
                       content: const Text(
-                        "Are You Log Out App?",textAlign: TextAlign.center,
+                        "Are You Log Out App?",
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
@@ -77,11 +78,11 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                CateegoriesSelector(),
+                CategoriesSelector(),
                 SizedBox(
                   height: 10,
                 ),
-                FavoriteCateegories(),
+                FavoriteCategories(),
                 SizedBox(
                   height: 10,
                 ),

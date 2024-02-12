@@ -32,14 +32,14 @@ class ChatPage extends StatefulWidget {
 
 class _ChatPageState extends State<ChatPage> {
   final TextEditingController _toMessage = TextEditingController();
-  final ChatServise _chatServise = ChatServise();
+  final ChatService _chatService = ChatService();
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   final image = RegisterViewModel();
 
   void sendMesssage() async {
     if (_toMessage.text.isNotEmpty) {
-      await _chatServise.sendMessege(
+      await _chatService.sendMessage(
           widget.reciverUserId, _toMessage.text, widget.reciverUserName);
       _toMessage.clear();
     }
@@ -89,7 +89,7 @@ class _ChatPageState extends State<ChatPage> {
   //build message item
   Widget _buildMessagesItem(DocumentSnapshot doc) {
     // ignore: unused_local_variable
-    final auth = Provider.of<AuthServise>(context);
+    final auth = Provider.of<AuthService>(context);
     Map<String, dynamic> data = doc.data()! as Map<String, dynamic>;
     var msgModel = MessageModel.fromMap(data);
 
@@ -136,7 +136,7 @@ class _ChatPageState extends State<ChatPage> {
   Widget _buildMessagesList() {
     return StreamBuilder(
       stream:
-          _chatServise.getMessage(_auth.currentUser!.uid, widget.reciverUserId),
+          _chatService.getMessage(_auth.currentUser!.uid, widget.reciverUserId),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
           return Text('Error${snapshot.error}');

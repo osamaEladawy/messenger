@@ -14,7 +14,7 @@ class UserProfileImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final auth = Provider.of<AuthServise>(context);
+    final auth = Provider.of<AuthService>(context);
     // ignore: unused_element
     getImage(DocumentSnapshot doc){
       Map<String,dynamic> data = doc.data()! as Map<String,dynamic>;

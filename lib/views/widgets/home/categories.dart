@@ -6,19 +6,17 @@ import '../../screens/groub.dart';
 import '../../screens/online.dart';
 import '../../screens/request.dart';
 
-class CateegoriesSelector extends StatefulWidget {
-  const CateegoriesSelector({super.key});
+class CategoriesSelector extends StatefulWidget {
+  const CategoriesSelector({super.key});
 
 
   @override
-  State<CateegoriesSelector> createState() => _CateegoriesSelectorState();
+  State<CategoriesSelector> createState() => _CategoriesSelectorState();
 }
 
-class _CateegoriesSelectorState extends State<CateegoriesSelector>
+class _CategoriesSelectorState extends State<CategoriesSelector>
     with SingleTickerProviderStateMixin {
-
   int? number;
-
 
   changeState(index){
     number = index ;
@@ -41,10 +39,10 @@ class _CateegoriesSelectorState extends State<CateegoriesSelector>
     const RequsetPage(),
   ];
 
-  List<String>cateegories = [
+  List<String>categories = [
     'Messages',
     'Online',
-    'Groubs',
+    'Groups',
     'Requests',
 
   ];
@@ -58,7 +56,7 @@ class _CateegoriesSelectorState extends State<CateegoriesSelector>
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         children: [
-          ...List.generate(cateegories.length, (index) =>
+          ...List.generate(categories.length, (index) =>
               GestureDetector(
                 onTap: () {
                   changeState(index);
@@ -71,7 +69,7 @@ class _CateegoriesSelectorState extends State<CateegoriesSelector>
                     )):null,
                   ),
                   child: Text(
-                    cateegories[index],
+                    categories[index],
                     style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

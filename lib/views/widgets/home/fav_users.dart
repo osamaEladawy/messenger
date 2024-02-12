@@ -9,18 +9,18 @@ import '../../../data/model/user_model.dart';
 import '../../chat/chat_page.dart';
 import '../../screens/profile_user.dart';
 
-class FavoriteCateegories extends StatefulWidget {
-  const FavoriteCateegories({super.key});
+class FavoriteCategories extends StatefulWidget {
+  const FavoriteCategories({super.key});
 
   @override
-  State<FavoriteCateegories> createState() => _FavoriteCateegoriesState();
+  State<FavoriteCategories> createState() => _FavoriteCategoriesState();
 }
 
-class _FavoriteCateegoriesState extends State<FavoriteCateegories> {
+class _FavoriteCategoriesState extends State<FavoriteCategories> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   getData() async {
-    final auth = Provider.of<AuthServise>(context, listen: false);
+    final auth = Provider.of<AuthService>(context, listen: false);
     await auth.getDataFromSharedpreferences();
   }
 
@@ -36,7 +36,7 @@ class _FavoriteCateegoriesState extends State<FavoriteCateegories> {
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
-    final auth = Provider.of<AuthServise>(context);
+    final auth = Provider.of<AuthService>(context);
     return StreamBuilder(
       stream: FirebaseFirestore.instance.collection('users').snapshots(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {

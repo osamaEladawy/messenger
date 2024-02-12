@@ -13,7 +13,7 @@ class UserProfileModel{
 
 
   getData(BuildContext context)async{
-    final auth = Provider.of<AuthServise>(context,listen: false);
+    final auth = Provider.of<AuthService>(context,listen: false);
     await auth.getDataFromSharedpreferences();
   }
 

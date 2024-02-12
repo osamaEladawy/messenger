@@ -15,7 +15,7 @@ class MenuChat extends StatefulWidget {
 }
 
 class _MenuChatState extends State<MenuChat> {
-  final ChatServise _chat = ChatServise();
+  final ChatService _chat = ChatService();
 
   List<QueryDocumentSnapshot> myMessages = [];
   List<MessageModel> msg= [];

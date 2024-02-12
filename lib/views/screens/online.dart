@@ -35,7 +35,7 @@ class _OnlinePageState extends State<OnlinePage> {
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
-    var auth = Provider.of<AuthServise>(context);
+    var auth = Provider.of<AuthService>(context);
     return Scaffold(
       backgroundColor: kBackGround,
       appBar: AppBar(
@@ -161,7 +161,7 @@ class _MyUsersNameState extends State<MyUsersName> {
 
   @override
   Widget build(BuildContext context) {
-    var auth = Provider.of<AuthServise>(context);
+    var auth = Provider.of<AuthService>(context);
     return Expanded(
       child: StreamBuilder(
         stream: usersData,

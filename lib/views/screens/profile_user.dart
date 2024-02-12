@@ -22,7 +22,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    final auth = Provider.of<AuthServise>(context);
+    final auth = Provider.of<AuthService>(context);
     return Scaffold(
       appBar :AppBar(
         title:  Text(userProfileModel.textAppBar),

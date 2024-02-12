@@ -7,15 +7,15 @@ import 'package:provider/provider.dart';
 import '../../auth/chat_service.dart';
 import '../../auth/service_auth.dart';
 
-class HomeViewNodel{
-  final chatService = ChatServise();
+class HomeViewModel{
+  final chatService = ChatService();
   final FirebaseAuth auth = FirebaseAuth.instance;
 
   Myservice services = Myservice();
 
   signOut(BuildContext context){
-    final authServise = Provider.of<AuthServise>(context, listen: false);
-      authServise.signOut();
+    final authService = Provider.of<AuthService>(context, listen: false);
+    authService.signOut();
       print("users data deleted now..........");
   }
 
