@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "406224697890",
+    "project_id": "fir-messenger-966f0",
+    "storage_bucket": "fir-messenger-966f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406224697890:android:ee7c651f1e46140241e87b",
+        "android_client_info": {
+          "package_name": "com.classcar200.messenger_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406224697890-6mq3omj25ujvlpfel7ehg8chnsvmd24a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6nWEdGMHErxi8YhE-7sGkr9pDw_Qk61A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "406224697890-6mq3omj25ujvlpfel7ehg8chnsvmd24a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
