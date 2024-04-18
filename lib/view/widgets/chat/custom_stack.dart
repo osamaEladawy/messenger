@@ -7,23 +7,26 @@ class CustomStack extends StatelessWidget {
   final double? bottom;
   final Color? iconColor;
   final double? iconSize;
+  final ImageProvider<Object>? backgroundImage;
+
   const CustomStack(
-      {super.key,required this.icon,required this.onTap,required this.right,required this.bottom, this.iconColor, this.iconSize});
+      {super.key, required this.icon, required this.onTap, required this.right, required this.bottom, this.iconColor, this.iconSize, this.backgroundImage});
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       clipBehavior: Clip.none,
       children: [
-        const CircleAvatar(
+         CircleAvatar(
           radius: 30,
+          backgroundImage:backgroundImage,
         ),
         Positioned(
           bottom: bottom,
           right: right,
           child: IconButton(
             onPressed: onTap,
-            icon: Icon(icon,color: iconColor,size: iconSize,),
+            icon: Icon(icon, color: iconColor, size: iconSize,),
           ),
         ),
       ],

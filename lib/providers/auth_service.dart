@@ -14,8 +14,8 @@ class AuthService extends ChangeNotifier {
           await _store.collection("users").doc(currentUser.uid).get();
 
       return model.UserModel.fromSnapshot(snapshot);
-    }else{
-     print("no users details");
+    } else {
+      print("no users details");
     }
     return null;
   }
@@ -32,12 +32,13 @@ class AuthService extends ChangeNotifier {
       String userUid = credential.user!.uid;
 
       final newUser = model.UserModel(
-              uid: userUid,
-              username: username,
-              email: email,
-              imageUrl: imageUrl,
-              isOnline: false)
-          .toJosn();
+        uid: userUid,
+        username: username,
+        email: email,
+        imageUrl: imageUrl,
+        isOnline: false,
+        exitTime: Timestamp.now(),
+      ).toJosn();
 
       await _store.collection('users').doc(userUid).set(newUser);
 
@@ -59,6 +60,14 @@ class AuthService extends ChangeNotifier {
   }
 
   Future<void> signOut() async {
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(FirebaseAuth.instance.currentUser?.uid)
+        .update({
+      "isOnline": false,
+      "exitTime": Timestamp.now(),
+    });
+
     await _auth.signOut();
   }
 }

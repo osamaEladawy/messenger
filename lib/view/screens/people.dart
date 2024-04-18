@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:messenger_app/data/static/my_data.dart';
 import 'package:messenger_app/view/widgets/people/active_users.dart';
+import 'package:messenger_app/view/widgets/people/stories_users.dart';
 
 class PeoplePage extends StatefulWidget {
   const PeoplePage({super.key});
@@ -30,13 +32,7 @@ class _PeoplePageState extends State<PeoplePage> {
 
   List<Widget> pages =[
     const ActiveUsers(),
-   ListView.builder(
-      shrinkWrap: true,
-      itemCount: 10,
-      itemBuilder: (context,index){
-      return const Card(child: Text("1"),);
-    }),
-
+    const StoriesUsers(),
   ];
 
 
@@ -77,7 +73,7 @@ class _PeoplePageState extends State<PeoplePage> {
                       selectPage(index);
                       },
                       child: Text(
-                        "${words[index]} (12)",
+                        "${words[index]} ${dataForUsers.length}",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: changeState == index

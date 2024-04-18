@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:messenger_app/providers/users_providers.dart';
 import 'package:messenger_app/view/auth/login_or_signup.dart';
-import 'package:messenger_app/view/home.dart';
+import 'package:messenger_app/view/screens/home.dart';
 import 'package:provider/provider.dart'; 
 
 class InitialPage extends StatefulWidget {

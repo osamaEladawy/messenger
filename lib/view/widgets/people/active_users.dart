@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:messenger_app/view/single_chat.dart';
+import 'package:messenger_app/view/screens/single_chat.dart';
 import 'package:messenger_app/view/widgets/chat/custom_stack.dart';
+
+import '../../../data/static/my_data.dart';
 
 class ActiveUsers extends StatelessWidget {
   const ActiveUsers({super.key});
@@ -8,8 +10,8 @@ class ActiveUsers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: ListView.builder(
-          itemCount: 40,
+      child: ListView.separated(
+          itemCount: dataForUsers.length,
           itemBuilder: (context, index) {
             return ListTile(
               onTap: () {
@@ -17,20 +19,16 @@ class ActiveUsers extends StatelessWidget {
                     builder: (context) => const SingleChat()));
               },
               leading: CustomStack(
+                  backgroundImage: NetworkImage(dataForUsers[index]['image']),
                   icon: Icons.circle,
                   iconSize: 20,
                   iconColor: Colors.green,
                   onTap: () {},
                   right: -10,
                   bottom: -17),
-              title: const Text("username"),
-              subtitle: const Text("message"),
-              // trailing: IconButton(
-              //   onPressed: () {},
-              //   icon: const Icon(Icons.check_circle_outline),
-              // ),
+              title:  Text(dataForUsers[index]['name']),
             );
-          }),
+          }, separatorBuilder: (BuildContext context, int index)=>const SizedBox(height: 13,),),
     );
   }
 }

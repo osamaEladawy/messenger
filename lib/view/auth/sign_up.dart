@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 
 class SignUp extends StatefulWidget {
   final void Function()? onTap;
+
   const SignUp({super.key, this.onTap});
 
   @override
@@ -33,18 +34,18 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     var service = Provider.of<HandleImage>(context);
     return Scaffold(
-      bottomNavigationBar:  HaveAccountOrCreateIt(
+      bottomNavigationBar: HaveAccountOrCreateIt(
         onTap: widget.onTap,
         title: 'Login',
         isHaveAccount: true,
       ),
       appBar: AppBar(
         title: Container(
-          margin: const EdgeInsets.only(top: 25),
+          margin: const EdgeInsets.only(top: 25,right: 30),
           child: const Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text("Sign Up"),
+              Center(child: Text("Sign Up")),
               Divider(),
             ],
           ),
@@ -59,7 +60,7 @@ class _SignUpState extends State<SignUp> {
           );
         },
         child: SingleChildScrollView(
-          child:   Form(
+          child: Form(
             key: _model.myKey,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -79,10 +80,27 @@ class _SignUpState extends State<SignUp> {
                     "please enter your info to create account",
                     style: TextStyle(fontSize: 15),
                   ),
-                  const SizedBox(height: 20,),
-                  CircleAvatar(
-                    radius: 35,
-                    backgroundImage: service.profileImage(false),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      CircleAvatar(
+                        radius: 35,
+                        backgroundImage: service.profileImage(false),
+                      ),
+                      Positioned(
+                        bottom: -17,
+                        right: -11,
+                        child: IconButton(
+                          onPressed: () async{
+                            await service.getImageGallery();
+                          },
+                          icon: const Icon(Icons.camera_alt),
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 22,
@@ -113,9 +131,8 @@ class _SignUpState extends State<SignUp> {
                       setState(() {});
                     },
                     obscureText: _model.isShowText,
-                    icon: _model.isShowText
-                        ? Icons.visibility
-                        : Icons.visibility,
+                    icon:
+                        _model.isShowText ? Icons.visibility : Icons.visibility,
                     controller: _model.password,
                     hintText: "Enter your Password",
                     labelText: "Password",
@@ -129,9 +146,8 @@ class _SignUpState extends State<SignUp> {
                       setState(() {});
                     },
                     obscureText: _model.isShowText,
-                    icon: _model.isShowText
-                        ? Icons.visibility
-                        : Icons.visibility,
+                    icon:
+                        _model.isShowText ? Icons.visibility : Icons.visibility,
                     controller: _model.confirmPassword,
                     hintText: "Enter your Password again",
                     labelText: "Password",
@@ -140,7 +156,7 @@ class _SignUpState extends State<SignUp> {
                     height: 25,
                   ),
                   CustomButtonAuth(
-                    onTap: () async{
+                    onTap: () async {
                       await _model.signUp(context: context);
                     },
                     title: 'Next',

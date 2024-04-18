@@ -55,7 +55,6 @@ class _LoginPageState extends State<LoginPage> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-
                     ),
                   ),
                   const SizedBox(
@@ -69,7 +68,11 @@ class _LoginPageState extends State<LoginPage> {
                       // color: buttonColor,
                       borderRadius: BorderRadius.circular(100),
                     ),
-                    child: Image.asset("assets/images/messenger1.png"),
+                    child: Image.asset(
+                      "assets/images/messenger1.png",
+                      height: 120,
+                      width: 120,
+                    ),
                   ),
                   const SizedBox(
                     height: 70,
@@ -137,7 +140,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   CustomButtonAuth(
                       onTap: () async {
-                         _model.login(context: context);
+                        _model.login(context: context);
                       },
                       title: "LOG IN",
                       color: const Color(0xFF2196F3)),
@@ -152,6 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                   ),
+                  const SizedBox(height: 10,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [

@@ -6,13 +6,16 @@ class UserModel {
   late final String? email;
   late final String? imageUrl;
   late final bool? isOnline;
+  late final  exitTime;
 
   UserModel(
       {required this.uid,
       required this.username,
       required this.email,
       required this.imageUrl,
-      required this.isOnline});
+      required this.isOnline,
+      required this.exitTime,
+      });
 
   UserModel.fromSnapshot(DocumentSnapshot snapshot) {
     final result = snapshot.data()! as Map<String, dynamic>;
@@ -22,6 +25,7 @@ class UserModel {
     email = result['email'];
     imageUrl = result['imageUrl'];
     isOnline = result['isOnline'];
+    exitTime = result['exitTime'];
   }
 
   Map<String, dynamic> toJosn() => {
@@ -29,6 +33,7 @@ class UserModel {
         "username": username,
         "imageUrl": imageUrl,
         "email": email,
-        "isOnline": isOnline
+        "isOnline": isOnline,
+        "exitTime": exitTime
       };
 }

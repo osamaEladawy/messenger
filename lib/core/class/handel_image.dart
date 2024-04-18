@@ -121,17 +121,17 @@ class HandleImage extends ChangeNotifier {
           height: 180,
           child: Column(
             children: [
-              ListTile(
-                onTap: () {
-                  getImageCamera();
-                  Navigator.of(context).maybePop();
-                },
-                leading: const Icon(Icons.camera),
-                title: const Text("Camera"),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
+              // ListTile(
+              //   onTap: () {
+              //     getImageCamera();
+              //     Navigator.of(context).maybePop();
+              //   },
+              //   leading: const Icon(Icons.camera),
+              //   title: const Text("Camera"),
+              // ),
+              // const SizedBox(
+              //   height: 10,
+              // ),
               ListTile(
                 onTap: () {
                   getImageGallery();
@@ -208,30 +208,34 @@ class HandleImage extends ChangeNotifier {
           .uploadImage("profile", imageName, file!, false);
 
       if (_auth.currentUser!.uid == userId) {
+        if(imageFileUrl != null || imageFileUrl != "") {
+          await deleteImage(imageFileUrl);
+        }
         await _store
             .collection("users")
             .doc(_auth.currentUser!.uid)
-            .update({"imageUrl": url}).then((value) async {
-          await _store
-              .collection("posts")
-              .where("uid", isEqualTo: _auth.currentUser!.uid)
-              .get()
-              .then((value) {
-            print("loop for posts====================user");
-            value.docs.forEach((e) async {
-              var updatePost = e.data();
-              await _store
-                  .collection("posts")
-                  .doc(updatePost['postId'])
-                  .update({
-                "profileImage": url,
-              });
-              print("user update================================post");
-            });
-
-          });
-          print("user update================================profile");
-        });
+            .update({"imageUrl": url});
+        //     .then((value) async {
+        //   await _store
+        //       .collection("posts")
+        //       .where("uid", isEqualTo: _auth.currentUser!.uid)
+        //       .get()
+        //       .then((value) {
+        //     print("loop for posts====================user");
+        //     value.docs.forEach((e) async {
+        //       var updatePost = e.data();
+        //       await _store
+        //           .collection("posts")
+        //           .doc(updatePost['postId'])
+        //           .update({
+        //         "profileImage": url,
+        //       });
+        //       print("user update================================post");
+        //     });
+        //
+        //   });
+        //   print("user update================================profile");
+        // });
       }
     }
     notifyListeners();
@@ -251,29 +255,33 @@ class HandleImage extends ChangeNotifier {
         false,
       );
       if (_auth.currentUser!.uid == userId) {
+        if(imageFileUrl != null || imageFileUrl != ""){
+          await deleteImage(imageFileUrl);
+        }
         await _store
             .collection("users")
             .doc(_auth.currentUser!.uid)
-            .update({"imageUrl": url}).then((value) async {
-          await _store
-              .collection("posts")
-              .where("uid", isEqualTo: _auth.currentUser!.uid)
-              .get()
-              .then((value) {
-            print("loop for posts====================user");
-            value.docs.forEach((e) async {
-              var updatePost = e.data();
-              await _store
-                  .collection("posts")
-                  .doc(updatePost['postId'])
-                  .update({
-                "profileImage": url,
-              });
-              print("user update================================post");
-            });
-          });
-          print("user update================================profile");
-        });
+            .update({"imageUrl": url});
+        //     .then((value) async {
+        //   await _store
+        //       .collection("posts")
+        //       .where("uid", isEqualTo: _auth.currentUser!.uid)
+        //       .get()
+        //       .then((value) {
+        //     print("loop for posts====================user");
+        //     value.docs.forEach((e) async {
+        //       var updatePost = e.data();
+        //       await _store
+        //           .collection("posts")
+        //           .doc(updatePost['postId'])
+        //           .update({
+        //         "profileImage": url,
+        //       });
+        //       print("user update================================post");
+        //     });
+        //   });
+        //   print("user update================================profile");
+        // });
       }
     }
     notifyListeners();

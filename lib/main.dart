@@ -1,11 +1,14 @@
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:messenger_app/core/class/handel_image.dart';
 import 'package:messenger_app/providers/auth_service.dart';
 import 'package:messenger_app/providers/users_providers.dart';
 import 'package:messenger_app/view/auth/initial_page.dart';
+import 'package:messenger_app/view/auth/login_or_signup.dart';
+import 'package:messenger_app/view/splash/splash_page.dart';
 import 'package:provider/provider.dart';
+
+import 'core/theme/style.dart';
 
 void main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,9 +23,15 @@ void main(List<String> args) async {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context)=> AuthService(),),
-        ChangeNotifierProvider(create: (context)=> UsersProviders(),),
-        ChangeNotifierProvider(create: (context)=> HandleImage(),),
+        ChangeNotifierProvider(
+          create: (context) => AuthService(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => UsersProviders(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => HandleImage(),
+        ),
       ],
       child: const MyApp(),
     ),
@@ -36,18 +45,29 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-          appBarTheme: const AppBarTheme(
-        centerTitle: true,
-      )),
-      // theme: ThemeData.dark().copyWith(
-      //   appBarTheme: const AppBarTheme(
-      //     centerTitle: true,
-      //   )
-      // ),
-      // darkTheme: ThemeData.dark(),
+        appBarTheme: const AppBarTheme(
+          centerTitle: true,
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          )
+        ),
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+           backgroundColor: backGroundColor,
+        ),
+      ),
+      darkTheme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: Colors.black,
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+         // backgroundColor: Colors.black,
+        ),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.black,
+          iconTheme: IconThemeData(color: Colors.white70),
+        ),
+      ),
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
-      home: const InitialPage(),
+      home: const SplashPage(),
     );
   }
 }

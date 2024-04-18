@@ -15,8 +15,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
   Widget build(BuildContext context) {
     return
     BottomAppBar(
-      color: backGroundColor,
-      height: 70,
+      height: 63,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -37,6 +36,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
                           : Colors.grey,
                     ),
                   ),
+                  const SizedBox(height: 5,),
                   Expanded(
                     child: Text(
                       widget.model.words[index]['pageName'],

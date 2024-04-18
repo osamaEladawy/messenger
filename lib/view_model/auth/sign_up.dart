@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:messenger_app/core/class/handel_image.dart';
 import 'package:messenger_app/providers/auth_service.dart';
 import 'package:messenger_app/view/auth/login.dart';
 import 'package:provider/provider.dart';
@@ -18,19 +19,22 @@ class SignUpViewModel {
 
   signUp({required BuildContext context}) async {
     if (myKey.currentState!.validate()) {
-      if(password.text != confirmPassword.text ){
-        ScaffoldMessenger.of(context)..removeCurrentSnackBar()..showSnackBar(const SnackBar(content: Text("passwords not match!")));
+      if (password.text != confirmPassword.text) {
+        ScaffoldMessenger.of(context)
+          ..removeCurrentSnackBar()
+          ..showSnackBar(const SnackBar(content: Text("passwords not match!")));
         return;
       }
       final service = Provider.of<AuthService>(context, listen: false);
+      final image = Provider.of<HandleImage>(context, listen: false);
       try {
-        UserCredential cerdential = await service.signUp(
+        UserCredential credential = await service.signUp(
             email: email.text,
             password: password.text,
             username: name.text,
-            imageUrl: '');
+            imageUrl: '${image.url}');
 
-        cerdential.user!.sendEmailVerification();
+        credential.user!.sendEmailVerification();
 
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
@@ -38,7 +42,15 @@ class SignUpViewModel {
           ),
         );
       } catch (e) {
-         ScaffoldMessenger.of(context)..removeCurrentSnackBar()..showSnackBar(SnackBar(content: Text(e.toString(),),),);
+        ScaffoldMessenger.of(context)
+          ..removeCurrentSnackBar()
+          ..showSnackBar(
+            SnackBar(
+              content: Text(
+                e.toString(),
+              ),
+            ),
+          );
         print(e.toString());
       }
     } else {}

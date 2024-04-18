@@ -14,14 +14,12 @@ class _LoginOrSignUpState extends State<LoginOrSignUp> {
 
   listenToAuth() {
     isLogin = !isLogin;
-    setState(() {
-      
-    });
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    if (isLogin) {
+    if (isLogin == true) {
       return LoginPage(
         onTap: listenToAuth,
       );

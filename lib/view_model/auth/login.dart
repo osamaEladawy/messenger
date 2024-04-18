@@ -2,9 +2,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:messenger_app/core/function/back.dart';
 import 'package:messenger_app/providers/auth_service.dart';
 import 'package:messenger_app/view/auth/initial_page.dart';
 import 'package:provider/provider.dart';
@@ -46,10 +44,6 @@ class LoginViewModel {
             (route) => false);
       });
     } catch (e) {
-    // return  AwesomeDialog(
-    //     dialogType: DialogType.noHeader,
-    //     context: context ,
-    //   title: e.toString())..show();
       // ScaffoldMessenger.of(context)
       //   ..removeCurrentSnackBar()
       //   ..showSnackBar(
