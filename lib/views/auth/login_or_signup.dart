@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:messenger_app/view/auth/login.dart';
-import 'package:messenger_app/view/auth/sign_up.dart';
+import 'package:messenger_app/views/auth/login.dart';
+import 'package:messenger_app/views/auth/sign_up.dart';
 
 class LoginOrSignUp extends StatefulWidget {
   const LoginOrSignUp({super.key});

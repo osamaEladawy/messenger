@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:messenger_app/view/screens/chat.dart';
-import 'package:messenger_app/view/screens/people.dart';
+import 'package:messenger_app/views/screens/chat.dart';
+import 'package:messenger_app/views/screens/people.dart';
 
 class HomeViewModel{
 PageController? controller;
@@ -12,12 +12,13 @@ PageController? controller;
  getUsers()async{
    var users = FirebaseFirestore.instance.collection("users").get().then((value){
      value.docs.forEach((element) {
-       userData = element.data()!;
+       userData = element.data();
        print("userData==============================================");
        print("userDat...$userData");
        print("userData==============================================");
      });
    });
+   print(users);
  }
 
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:messenger_app/view/auth/initial_page.dart';
-import 'package:messenger_app/view/auth/login.dart';
+import 'package:messenger_app/views/screens/home_screen.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -10,12 +9,15 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-
   @override
   void initState() {
-    Future.delayed(const Duration(milliseconds: 3000)).then((value) =>
-        Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) =>const InitialPage(),),),);
+    Future.delayed(const Duration(milliseconds: 3000)).then(
+      (value) => Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => const HomePage(),
+        ),
+      ),
+    );
     super.initState();
   }
 
@@ -37,7 +39,10 @@ class _SplashPageState extends State<SplashPage> {
               ),
               const Text(
                 "Welcome to Messenger App",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18,),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
               )
             ],
           ),

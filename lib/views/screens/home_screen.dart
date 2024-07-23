@@ -3,8 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:messenger_app/providers/users_providers.dart';
 import 'package:messenger_app/core/theme/style.dart';
-import 'package:messenger_app/view/screens/profile.dart';
-import 'package:messenger_app/view/widgets/home/bottomappbar.dart';
+import 'package:messenger_app/views/screens/profile.dart';
+import 'package:messenger_app/views/widgets/home/bottomappbar.dart';
 import 'package:messenger_app/view_model/home/home_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -18,12 +18,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final HomeViewModel _model = HomeViewModel();
 
-  getUser()async{
+  getUser() async {
     await _model.getUsers();
-    if(mounted){
-      setState(() {
-
-      });
+    if (mounted) {
+      setState(() {});
     }
   }
 
@@ -48,21 +46,26 @@ class _HomePageState extends State<HomePage> {
         leading: GestureDetector(
           onTap: () {
             Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) =>  ProfilePage(userUid: _model.userData,)));
+              MaterialPageRoute(
+                builder: (context) => ProfilePage(
+                  userUid: _model.userData,
+                ),
+              ),
+            );
           },
           child: Container(
             margin: const EdgeInsets.only(left: 10),
             child: const CircleAvatar(
               backgroundImage: NetworkImage(
-                  "https://images.unsplash.com/photo-1594361487118-f4e2b2288aea?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGdpcmwlMjBmYWNlfGVufDB8fDB8fHww"),
+                  "https://t4.ftcdn.net/jpg/02/45/56/35/360_F_245563558_XH9Pe5LJI2kr7VQuzQKAjAbz9PAyejG1.jpg"),
             ),
           ),
         ),
         title: const Text(
-          "Chat",
+          "Chats",
           style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
         ),
-        centerTitle: false,
+        centerTitle: true,
         actions: [
           IconButton(
             onPressed: () {},

@@ -26,6 +26,8 @@ class CustomTextFormField extends StatelessWidget {
         validator: (value) {
           if (value!.isEmpty) {
             return "please entre this text field";
+          } else {
+            return null;
           }
         },
         controller: controller,
@@ -34,7 +36,10 @@ class CustomTextFormField extends StatelessWidget {
           labelText: labelText,
           prefixIcon: IconButton(
             onPressed: onTap,
-            icon: Icon(icon,color: obscureText == true ? buttonLoginColor:null,),
+            icon: Icon(
+              icon,
+              color: obscureText == true ? buttonLoginColor : null,
+            ),
           ),
         ),
       ),

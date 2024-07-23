@@ -2,10 +2,10 @@ import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:messenger_app/core/theme/style.dart';
-import 'package:messenger_app/view/widgets/auth/button_auth.dart';
-import 'package:messenger_app/view/widgets/auth/dialog_exit.dart';
-import 'package:messenger_app/view/widgets/auth/ifyou_have_account.dart';
-import 'package:messenger_app/view/widgets/auth/textformfield.dart';
+import 'package:messenger_app/views/widgets/auth/button_auth.dart';
+import 'package:messenger_app/views/widgets/auth/dialog_exit.dart';
+import 'package:messenger_app/views/widgets/auth/ifyou_have_account.dart';
+import 'package:messenger_app/views/widgets/auth/textformfield.dart';
 import 'package:messenger_app/view_model/auth/login.dart';
 
 class LoginPage extends StatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:messenger_app/view/screens/single_chat.dart';
-import 'package:messenger_app/view/widgets/chat/custom_stack.dart';
+import 'package:messenger_app/views/screens/single_chat.dart';
+import 'package:messenger_app/views/widgets/chat/custom_stack.dart';
 
 import '../../../data/static/my_data.dart';
 

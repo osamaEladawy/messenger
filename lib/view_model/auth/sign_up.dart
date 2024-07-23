@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:messenger_app/core/class/handel_image.dart';
 import 'package:messenger_app/providers/auth_service.dart';
-import 'package:messenger_app/view/auth/login.dart';
+import 'package:messenger_app/views/auth/login.dart';
 import 'package:provider/provider.dart';
 
 class SignUpViewModel {

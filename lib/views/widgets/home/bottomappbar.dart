@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:messenger_app/core/theme/style.dart';
 import 'package:messenger_app/view_model/home/home_view_model.dart';
 
 class CustomBottomBar extends StatefulWidget {

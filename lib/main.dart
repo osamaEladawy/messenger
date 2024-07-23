@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:messenger_app/core/class/handel_image.dart';
 import 'package:messenger_app/providers/auth_service.dart';
 import 'package:messenger_app/providers/users_providers.dart';
-import 'package:messenger_app/view/auth/initial_page.dart';
-import 'package:messenger_app/view/auth/login_or_signup.dart';
-import 'package:messenger_app/view/splash/splash_page.dart';
+import 'package:messenger_app/views/screens/home_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'core/theme/style.dart';
@@ -67,7 +65,7 @@ class MyApp extends StatelessWidget {
       ),
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
-      home: const SplashPage(),
+      home: HomePage(),
     );
   }
 }

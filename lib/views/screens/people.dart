@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:messenger_app/data/static/my_data.dart';
-import 'package:messenger_app/view/widgets/people/active_users.dart';
-import 'package:messenger_app/view/widgets/people/stories_users.dart';
+import 'package:messenger_app/views/widgets/people/active_users.dart';
+import 'package:messenger_app/views/widgets/people/stories_users.dart';
 
 class PeoplePage extends StatefulWidget {
   const PeoplePage({super.key});
