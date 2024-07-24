@@ -9,12 +9,12 @@ class UserModel {
   late final  exitTime;
 
   UserModel(
-      {required this.uid,
+      { this.uid,
       required this.username,
-      required this.email,
+       this.email,
       required this.imageUrl,
       required this.isOnline,
-      required this.exitTime,
+       this.exitTime,
       });
 
   UserModel.fromSnapshot(DocumentSnapshot snapshot) {

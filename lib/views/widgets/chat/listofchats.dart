@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:messenger_app/data/models/user_model.dart';
 import 'package:messenger_app/views/screens/single_chat.dart';
 import 'package:messenger_app/views/widgets/chat/custom_stack.dart';
 
 import '../../../data/static/my_data.dart';
 
 class ListOfChats extends StatelessWidget {
-  const ListOfChats({super.key});
+  final List<UserModel> listOfUsers;
+  const ListOfChats({super.key, required this.listOfUsers});
 
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: ListView.builder(
-         physics: NeverScrollableScrollPhysics(),
+          physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          itemCount: dataForUsers.length,
+          itemCount: listOfUsers.length,
           itemBuilder: (context, index) {
             return ListTile(
               onTap: () {
@@ -21,14 +23,16 @@ class ListOfChats extends StatelessWidget {
                     builder: (context) => const SingleChat()));
               },
               leading: CustomStack(
-                  backgroundImage: NetworkImage(dataForUsers[index]['image']),
-                  icon: Icons.circle,
-                  iconSize: 20,
-                  iconColor: Colors.green,
-                  onTap: () {},
-                  right: -10,
-                  bottom: -17),
-              title: Text(dataForUsers[index]['name']),
+                backgroundImage: NetworkImage("${listOfUsers[index].imageUrl}"),
+                icon: Icons.circle,
+                iconSize: 20,
+                iconColor: Colors.green,
+                onTap: () {},
+                right: -10,
+                bottom: -17,
+                isOnline: listOfUsers[index].isOnline,
+              ),
+              title: Text("${listOfUsers[index].username}"),
               subtitle: Text(dataForUsers[index]["message"]),
               trailing: IconButton(
                 onPressed: () {},

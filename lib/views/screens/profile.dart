@@ -14,8 +14,9 @@ const style = TextStyle(
 
 class ProfilePage extends StatelessWidget {
   final Map<dynamic, dynamic> userUid;
+  final String name;
 
-  const ProfilePage({super.key, required this.userUid});
+  const ProfilePage({super.key, required this.userUid, required this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +49,7 @@ class ProfilePage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () async {
-             await service.signOut();
+              await service.signOut();
             },
             icon: const Icon(
               Icons.logout,
@@ -70,16 +71,19 @@ class ProfilePage extends StatelessWidget {
                       context, userUid['uid'], userUid['imageUrl']);
                 },
                 child: CircleAvatar(
-                    radius: 43,
-                    backgroundImage: handleImage.profileImage(
-                        true, handleImage.file, user!.imageUrl)),
+                  radius: 43,
+                  backgroundImage: NetworkImage(
+                      "https://t4.ftcdn.net/jpg/02/45/56/35/360_F_245563558_XH9Pe5LJI2kr7VQuzQKAjAbz9PAyejG1.jpg"),
+                  // handleImage.profileImage(
+                  //     true, handleImage.file, user?.imageUrl),
+                ),
               ),
             ),
             const SizedBox(
               height: 8,
             ),
             const Center(
-              child: Text("Princes",
+              child: Text("Osama",
                   style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold)),
             ),
             const SizedBox(height: 12),

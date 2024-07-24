@@ -18,17 +18,17 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final HomeViewModel _model = HomeViewModel();
 
-  getUser() async {
-    await _model.getUsers();
-    if (mounted) {
-      setState(() {});
-    }
-  }
+  // getUser() async {
+  //   _model.getUsers();
+  //   if (mounted) {
+  //     setState(() {});
+  //   }
+  // }
 
   @override
   void initState() {
     _model.controller = PageController();
-    getUser();
+    //getUser();
     super.initState();
   }
 
@@ -49,12 +49,13 @@ class _HomePageState extends State<HomePage> {
               MaterialPageRoute(
                 builder: (context) => ProfilePage(
                   userUid: _model.userData,
+                  name: '',
                 ),
               ),
             );
           },
           child: Container(
-            margin: const EdgeInsets.only(left: 10),
+            margin: const EdgeInsets.only(left: 10, top: 7),
             child: const CircleAvatar(
               backgroundImage: NetworkImage(
                   "https://t4.ftcdn.net/jpg/02/45/56/35/360_F_245563558_XH9Pe5LJI2kr7VQuzQKAjAbz9PAyejG1.jpg"),
@@ -89,6 +90,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: PageView(
         controller: _model.controller,
+        physics: NeverScrollableScrollPhysics(),
         onPageChanged: (value) {
           _model.nextPage(value);
           setState(() {});

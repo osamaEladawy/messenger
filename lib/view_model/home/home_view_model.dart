@@ -9,17 +9,17 @@ PageController? controller;
  int currentIndex = 0;
  var userData = {};
 
- getUsers()async{
-   var users = FirebaseFirestore.instance.collection("users").get().then((value){
-     value.docs.forEach((element) {
-       userData = element.data();
-       print("userData==============================================");
-       print("userDat...$userData");
-       print("userData==============================================");
-     });
-   });
-   print(users);
- }
+//  getUsers()async{
+//    var users = FirebaseFirestore.instance.collection("users").get().then((value){
+//      value.docs.forEach((element) {
+//        userData = element.data();
+//        print("userData==============================================");
+//        print("userDat...$userData");
+//        print("userData==============================================");
+//      });
+//    });
+//    print(users);
+//  }
 
 
 List words= [

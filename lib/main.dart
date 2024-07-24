@@ -4,6 +4,7 @@ import 'package:messenger_app/core/class/handel_image.dart';
 import 'package:messenger_app/providers/auth_service.dart';
 import 'package:messenger_app/providers/users_providers.dart';
 import 'package:messenger_app/views/screens/home_screen.dart';
+import 'package:messenger_app/views/splash/splash_page.dart';
 import 'package:provider/provider.dart';
 
 import 'core/theme/style.dart';
@@ -65,7 +66,7 @@ class MyApp extends StatelessWidget {
       ),
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: SplashPage(),
     );
   }
 }
