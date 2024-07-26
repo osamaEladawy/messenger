@@ -5,11 +5,11 @@ import '../core/theme/style.dart';
 class ImageForUsers extends StatelessWidget {
   final void Function()? onTap;
   final Widget? child;
-  const ImageForUsers({super.key,required this.onTap,required this.child});
+  const ImageForUsers({super.key, required this.onTap, required this.child});
 
   @override
   Widget build(BuildContext context) {
-    return  Stack(
+    return Stack(
       children: [
         Container(
           width: 150,
@@ -17,7 +17,7 @@ class ImageForUsers extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(75),
-            child:child,
+            child: child,
           ),
         ),
         Positioned(

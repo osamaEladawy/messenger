@@ -37,7 +37,7 @@ class StatusFriends extends StatelessWidget {
                     ),
                   ],
                 ),
-                const Text("me"),
+                const Text("Story"),
               ],
             ),
           ),

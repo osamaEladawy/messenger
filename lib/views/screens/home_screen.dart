@@ -1,12 +1,10 @@
 import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:messenger_app/providers/users_providers.dart';
 import 'package:messenger_app/core/theme/style.dart';
 import 'package:messenger_app/views/screens/profile.dart';
 import 'package:messenger_app/views/widgets/home/bottomappbar.dart';
 import 'package:messenger_app/view_model/home/home_view_model.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -40,7 +38,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UsersProviders>(context, listen: false).users;
     return Scaffold(
       appBar: AppBar(
         leading: GestureDetector(
