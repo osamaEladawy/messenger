@@ -41,7 +41,7 @@ class _SignUpState extends State<SignUp> {
       ),
       appBar: AppBar(
         title: Container(
-          margin: const EdgeInsets.only(top: 25,right: 30),
+          margin: const EdgeInsets.only(top: 25, right: 30),
           child: const Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -94,7 +94,7 @@ class _SignUpState extends State<SignUp> {
                         bottom: -17,
                         right: -11,
                         child: IconButton(
-                          onPressed: () async{
+                          onPressed: () async {
                             await service.getImageGallery();
                           },
                           icon: const Icon(Icons.camera_alt),
@@ -102,9 +102,7 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 22,
-                  ),
+                  const SizedBox(height: 22),
                   CustomTextFormField(
                     obscureText: true,
                     icon: Icons.person,
@@ -112,9 +110,7 @@ class _SignUpState extends State<SignUp> {
                     hintText: "Enter your name",
                     labelText: "Name",
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10),
                   CustomTextFormField(
                     obscureText: true,
                     icon: Icons.email,
@@ -122,9 +118,7 @@ class _SignUpState extends State<SignUp> {
                     hintText: "Enter your Email",
                     labelText: "Email",
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10),
                   CustomTextFormField(
                     onTap: () {
                       _model.showOrHiddenText();
@@ -137,9 +131,7 @@ class _SignUpState extends State<SignUp> {
                     hintText: "Enter your Password",
                     labelText: "Password",
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10),
                   CustomTextFormField(
                     onTap: () {
                       _model.showOrHiddenText();
@@ -150,7 +142,7 @@ class _SignUpState extends State<SignUp> {
                         _model.isShowText ? Icons.visibility : Icons.visibility,
                     controller: _model.confirmPassword,
                     hintText: "Enter your Password again",
-                    labelText: "Password",
+                    labelText: "confirm Password",
                   ),
                   const SizedBox(
                     height: 25,

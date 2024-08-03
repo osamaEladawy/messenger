@@ -14,6 +14,7 @@ class SignUpViewModel {
   bool isShowText = false;
 
   showOrHiddenText() {
+    if(password.text.trim().isNotEmpty || confirmPassword.text.trim().isNotEmpty)
     isShowText = isShowText == false ? true : false;
   }
 

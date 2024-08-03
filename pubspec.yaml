@@ -51,10 +51,26 @@ dependencies:
   file_picker:
   jiffy:
   timeago:
-  get_time_ago:
-  swipe_to:
   uuid:
   intl:
+  get_it:
+  share_plus: 
+  path: 
+  path_provider: 
+  toast: 
+  fluttertoast:
+  agora_uikit:
+  get_time_ago:
+  swipe_to:
+  emoji_picker_flutter:
+  giphy_picker:
+  flutter_sound:
+  audioplayers:
+  video_player:
+  just_audio:
+  cached_network_image:
+  shared_preferences: 
+  flutter_story_view:
 
 dev_dependencies:
   flutter_test:

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:messenger_app/providers/users_providers.dart';
 import 'package:messenger_app/views/auth/login_or_signup.dart';
 import 'package:messenger_app/views/screens/home_screen.dart';
-import 'package:provider/provider.dart'; 
+import 'package:provider/provider.dart';
 
 class InitialPage extends StatefulWidget {
   const InitialPage({super.key});
@@ -13,28 +13,28 @@ class InitialPage extends StatefulWidget {
 }
 
 class _InitialPageState extends State<InitialPage> {
+  getData() async {
+    final service = Provider.of<UsersProviders>(context, listen: false);
+    await service.refreshUsers();
+  }
 
- getData()async{
-  final service = Provider.of<UsersProviders>(context,listen: false);
-  await service.refreshUsers();
- }
-
-
- @override
+  @override
   void initState() {
     super.initState();
     getData();
   }
 
-
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(stream: FirebaseAuth.instance.authStateChanges(), builder: (context,snapshot){
-      if(snapshot.hasData && FirebaseAuth.instance.currentUser!.emailVerified){
-      return const HomePage();
-      }else{
-     return const LoginOrSignUp();
-      }
-    });
+    return StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData &&
+              FirebaseAuth.instance.currentUser!.emailVerified) {
+            return const HomePage();
+          } else {
+            return const LoginOrSignUp();
+          }
+        });
   }
 }

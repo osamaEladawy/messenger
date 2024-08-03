@@ -1,8 +1,8 @@
 import 'package:awesome_icons/awesome_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:messenger_app/app/user/presentation/pages/profile_page.dart';
 import 'package:messenger_app/core/theme/style.dart';
-import 'package:messenger_app/views/screens/profile.dart';
 import 'package:messenger_app/views/widgets/home/bottomappbar.dart';
 import 'package:messenger_app/view_model/home/home_view_model.dart';
 
@@ -45,8 +45,7 @@ class _HomePageState extends State<HomePage> {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => ProfilePage(
-                  userUid: _model.userData,
-                  name: '',
+                uid: "",
                 ),
               ),
             );

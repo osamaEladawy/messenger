@@ -5,11 +5,15 @@ import 'package:messenger_app/providers/users_providers.dart';
 import 'package:messenger_app/services/my_services.dart';
 import 'package:messenger_app/views/splash/splash_page.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/theme/style.dart';
 
+late SharedPreferences preferences;
+
 void main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
+  preferences = await SharedPreferences.getInstance();
   await MyServices().initializeService();
   runApp(
     MultiProvider(
