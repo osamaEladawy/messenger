@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:messenger_app/core/function/back.dart';
+import 'package:messenger_app/core/functions/back.dart';
 
 class ExitDialog extends StatelessWidget {
   const ExitDialog({super.key});

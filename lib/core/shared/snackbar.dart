@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:messenger_app/core/theme%20copy/style.dart';
+import 'package:messenger_app/core/theme/style.dart';
 
 showSnackBar(String content, BuildContext context) {
   ScaffoldMessenger.of(context)

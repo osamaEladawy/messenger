@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:messenger_app/providers/users_providers.dart';
+import 'package:messenger_app/core/providers/users_providers.dart';
+import 'package:messenger_app/features/home_tap/ui/home_screen.dart';
 import 'package:messenger_app/views/auth/login_or_signup.dart';
-import 'package:messenger_app/views/screens/home_screen.dart';
 import 'package:provider/provider.dart';
 
 class InitialPage extends StatefulWidget {
@@ -14,8 +14,12 @@ class InitialPage extends StatefulWidget {
 
 class _InitialPageState extends State<InitialPage> {
   getData() async {
-    final service = Provider.of<UsersProviders>(context, listen: false);
-    await service.refreshUsers();
+    try {
+      final service = Provider.of<UsersProviders>(context, listen: false);
+      await service.refreshUsers();
+    } catch (e) {
+      print(e.toString());
+    }
   }
 
   @override
@@ -31,7 +35,7 @@ class _InitialPageState extends State<InitialPage> {
         builder: (context, snapshot) {
           if (snapshot.hasData &&
               FirebaseAuth.instance.currentUser!.emailVerified) {
-            return const HomePage();
+            return const HomeScreen();
           } else {
             return const LoginOrSignUp();
           }

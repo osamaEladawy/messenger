@@ -1,16 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:messenger_app/features/chat/presentation/pages/chat_page.dart';
 import 'package:messenger_app/view_model/chats/chats_view_model.dart';
-import 'package:messenger_app/views/widgets/chat/listofchats.dart';
-import 'package:messenger_app/views/widgets/home/status_friends.dart';
+import 'package:messenger_app/features/home_tap/ui/widgets/status_friends.dart';
 
-class ChatPage extends StatefulWidget {
-  const ChatPage({super.key});
+class Chat extends StatefulWidget {
+  const Chat({super.key});
 
   @override
-  State<ChatPage> createState() => _ChatPageState();
+  State<Chat> createState() => _ChatState();
 }
 
-class _ChatPageState extends State<ChatPage> {
+class _ChatState extends State<Chat> {
   final ChatsViewModel _model = ChatsViewModel();
 
   @override
@@ -26,11 +27,7 @@ class _ChatPageState extends State<ChatPage> {
         margin: EdgeInsets.symmetric(horizontal: 5),
         child: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 10,
-              ),
-            ),
+            SliverToBoxAdapter(child: SizedBox(height: 10)),
             SliverToBoxAdapter(
               child: SizedBox(
                 height: 50,
@@ -67,10 +64,15 @@ class _ChatPageState extends State<ChatPage> {
               ),
             ),
             SliverToBoxAdapter(child: const SizedBox(height: 20)),
-            StatusFriends(listOfUsers: _model.fillUsers),
+            //StatusFriends(listOfUsers: _model.fillUsers),
             SliverToBoxAdapter(child: const SizedBox(height: 20)),
             SliverToBoxAdapter(child: const Divider()),
-            ListOfChats(listOfUsers: _model.fillUsers),
+            //ListOfChats(listOfUsers: _model.fillUsers),
+            SliverToBoxAdapter(
+              child: ChatPage(
+                uid: '${FirebaseAuth.instance.currentUser!.uid}',
+              ),
+            ),
           ],
         ),
       ),

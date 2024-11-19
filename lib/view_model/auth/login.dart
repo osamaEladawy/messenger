@@ -3,7 +3,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:messenger_app/providers/auth_service.dart';
+import 'package:messenger_app/core/const/page_const.dart';
+import 'package:messenger_app/core/functions/extinctions.dart';
+import 'package:messenger_app/core/providers/auth_service.dart';
 import 'package:messenger_app/views/auth/initial_page.dart';
 import 'package:provider/provider.dart';
 
@@ -39,20 +41,15 @@ class LoginViewModel {
         print("userId login $userId");
         print("userid===============================================");
 
-        Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder: (context) => const InitialPage()),
-            (route) => false);
+      context.pushNamedAndRemoveUntil(PageConst.initialPage);
+           
       });
     } catch (e) {
-      // ScaffoldMessenger.of(context)
-      //   ..removeCurrentSnackBar()
-      //   ..showSnackBar(
-      //     SnackBar(
-      //       content: Text(
-      //         e.toString(),
-      //       ),
-      //     ),
-      //   );
+       AwesomeDialog(
+           dialogType: DialogType.error,
+          context: context,
+          title: "Welcome",
+          desc: "This is not correct email or password").show();
        print(e.toString());
     }
   }

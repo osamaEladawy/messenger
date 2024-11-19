@@ -1,12 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:messenger_app/core/class/handel_image.dart';
-import 'package:messenger_app/providers/auth_service.dart';
+import 'package:messenger_app/core/providers/auth_service.dart';
 import 'package:messenger_app/views/auth/login.dart';
 import 'package:provider/provider.dart';
 
 class SignUpViewModel {
   final TextEditingController name = TextEditingController();
+  final TextEditingController bio = TextEditingController();
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
   final TextEditingController confirmPassword = TextEditingController();
@@ -14,8 +15,9 @@ class SignUpViewModel {
   bool isShowText = false;
 
   showOrHiddenText() {
-    if(password.text.trim().isNotEmpty || confirmPassword.text.trim().isNotEmpty)
-    isShowText = isShowText == false ? true : false;
+    if (password.text.trim().isNotEmpty ||
+        confirmPassword.text.trim().isNotEmpty)
+      isShowText = isShowText == false ? true : false;
   }
 
   signUp({required BuildContext context}) async {
@@ -30,10 +32,12 @@ class SignUpViewModel {
       final image = Provider.of<HandleImage>(context, listen: false);
       try {
         UserCredential credential = await service.signUp(
-            email: email.text,
-            password: password.text,
-            username: name.text,
-            imageUrl: '${image.url}');
+          email: email.text,
+          password: password.text,
+          username: name.text,
+          imageUrl: '${image.url}',
+          bio: bio.text,
+        );
 
         credential.user!.sendEmailVerification();
 

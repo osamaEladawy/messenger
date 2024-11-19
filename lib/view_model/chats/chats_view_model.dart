@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:messenger_app/core/function/search.dart';
-import 'package:messenger_app/data/models/user_model.dart';
-import 'package:messenger_app/data/static/my_data.dart';
+import 'package:messenger_app/core/functions/search.dart';
 
 class ChatsViewModel {
   TextEditingController searchName = TextEditingController();
-  List<UserModel> fillUsers = users;
+  List fillUsers = [];
   bool isSearch = false;
 
   void search(String search) {

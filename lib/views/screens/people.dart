@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
-import 'package:messenger_app/data/static/my_data.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:messenger_app/features/chat/presentation/pages/chat_page.dart';
 import 'package:messenger_app/views/widgets/people/active_users.dart';
 import 'package:messenger_app/views/widgets/people/stories_users.dart';
 
@@ -15,32 +15,27 @@ class _PeoplePageState extends State<PeoplePage> {
   bool isActiveOrStories = false;
   int changeState = 0;
 
-
-  changeStates(index){
-    changeState = index ;
-    if(changeState == 0 ){
-      changeState = index ;
-
-    }else{
-      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>pages[index]));
+  changeStates(index) {
+    changeState = index;
+    if (changeState == 0) {
+      changeState = index;
+    } else {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => pages[index]));
     }
     print("this is $changeState");
-    setState(() {
-
-    });
+    setState(() {});
   }
 
-  List<Widget> pages =[
+  List<Widget> pages = [
+    //Center(child: Text("active")),
     const ActiveUsers(),
     const StoriesUsers(),
   ];
 
-
   selectPage(int index) {
     changeState = index;
-    setState(() {
-    });
-  
+    setState(() {});
   }
 
   List<String> words = [
@@ -54,7 +49,7 @@ class _PeoplePageState extends State<PeoplePage> {
       body: Column(
         children: [
           Container(
-            margin: const EdgeInsets.symmetric(vertical: 30),
+            margin: EdgeInsets.symmetric(vertical: 30.h),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -62,25 +57,26 @@ class _PeoplePageState extends State<PeoplePage> {
                   words.length,
                   (index) => Container(
                     alignment: Alignment.center,
-                    height: 30,
-                    width: 150,
+                    height: 30.h,
+                    width: 150.w,
                     decoration: BoxDecoration(
                       color: changeState == index ? Colors.grey.shade200 : null,
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                     ),
                     child: GestureDetector(
                       onTap: () {
-                      selectPage(index);
+                        selectPage(index);
                       },
                       child: Text(
-                        "${words[index]} ${dataForUsers.length}",
+                        "${words[index]}",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                            color: changeState == index
-                                ? Colors.black
-                                : Colors.grey.withOpacity(0.7),
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
+                          color: changeState == index
+                              ? Colors.black
+                              : Colors.grey.withOpacity(0.7),
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),

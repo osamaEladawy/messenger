@@ -2,10 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:messenger_app/core/class/handel_image.dart';
-import 'package:messenger_app/main.dart';
+import 'package:messenger_app/core/providers/auth_service.dart';
+import 'package:messenger_app/core/storage/pref_services.dart';
 import 'package:provider/provider.dart';
 
-import '../../controller/auth_service.dart';
 import '../../core/shared/snackbar.dart';
 
 class ProfileViewModel {
@@ -23,29 +23,29 @@ class ProfileViewModel {
 
   logOut(context) async {
     var service = Provider.of<AuthService>(context, listen: false);
-    if (preferences.getString("uid") != null) {
+   // if (PrefServices.getData(key:"uid") != null) {
       try {
-        String userId = preferences.getString("uid")!;
+        //String userId = PrefServices.getData(key:"uid")!;
         FirebaseMessaging.instance.unsubscribeFromTopic("users");
-        FirebaseMessaging.instance.unsubscribeFromTopic("users$userId");
-        preferences.clear();
+        FirebaseMessaging.instance.unsubscribeFromTopic("users${FirebaseAuth.instance.currentUser?.uid}");
+        //PrefServices.sharedPreferences!.clear();
         await FirebaseFirestore.instance
             .collection("users")
-            .doc(userId)
+            .doc(FirebaseAuth.instance.currentUser?.uid)
             .update({
           "isOnline": false,
           "dateWhenLogOut": DateTime.now(),
         });
-        await service.logOut();
+        await service.signOut();
         print("============================================");
-        print("$userId   logOut");
+        print("${FirebaseAuth.instance.currentUser?.uid}   logOut");
         print("============================================");
       } catch (e) {
         showSnackBar(e.toString(), context);
       }
-    } else {
-      showSnackBar("no user save", context);
-    }
+    // } else {
+    //   showSnackBar("no user save", context);
+    // }
   }
 
   privateMyProfile(uid) async {
@@ -72,7 +72,7 @@ class ProfileViewModel {
       }
     });
    }catch(e){
-    throw Exception(e.toString());
+    //throw Exception(e.toString());
    }
   }
 

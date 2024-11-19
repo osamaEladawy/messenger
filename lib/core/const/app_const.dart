@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:giphy_picker/giphy_picker.dart';
-import 'package:messenger_app/core/theme%20copy/style.dart';
+import 'package:messenger_app/core/theme/style.dart';
 
 void toast( String message ) {
   Fluttertoast.showToast(

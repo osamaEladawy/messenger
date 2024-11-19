@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:messenger_app/views/screens/chat.dart';
+import 'package:messenger_app/features/chat/presentation/pages/chat_page.dart';
 import 'package:messenger_app/views/screens/people.dart';
 import 'package:messenger_app/views/screens/settings.dart';
 
@@ -9,17 +11,18 @@ class HomeViewModel {
   int currentIndex = 0;
   var userData = {};
 
-//  getUsers()async{
-//    var users = FirebaseFirestore.instance.collection("users").get().then((value){
-//      value.docs.forEach((element) {
-//        userData = element.data();
-//        print("userData==============================================");
-//        print("userDat...$userData");
-//        print("userData==============================================");
-//      });
-//    });
-//    print(users);
-//  }
+  getUsers() async {
+    var users =
+        FirebaseFirestore.instance.collection("users").get().then((value) {
+      value.docs.forEach((element) {
+        userData = element.data();
+        print("userData==============================================");
+        print("userDat...$userData");
+        print("userData==============================================");
+      });
+    });
+    print(users);
+  }
 
   List words = [
     {
@@ -37,9 +40,9 @@ class HomeViewModel {
   ];
 
   List<Widget> pages = [
-    const ChatPage(),
+    ChatPage(uid: FirebaseAuth.instance.currentUser!.uid),
     const PeoplePage(),
-    const SettingsPage()
+    const SettingsPage(),
   ];
 
   onChangePage(int page) {

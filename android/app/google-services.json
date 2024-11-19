@@ -1,36 +1,26 @@
 {
   "project_info": {
-    "project_number": "406224697890",
-    "project_id": "fir-messenger-966f0",
-    "storage_bucket": "fir-messenger-966f0.appspot.com"
+    "project_number": "849404112354",
+    "project_id": "messenger-67501",
+    "storage_bucket": "messenger-67501.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:406224697890:android:ee7c651f1e46140241e87b",
+        "mobilesdk_app_id": "1:849404112354:android:39a967b3de1f199d689dbb",
         "android_client_info": {
           "package_name": "com.classcar200.messenger_app"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "406224697890-6mq3omj25ujvlpfel7ehg8chnsvmd24a.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyB6nWEdGMHErxi8YhE-7sGkr9pDw_Qk61A"
+          "current_key": "AIzaSyC1nz5KEv1LKjWpabBWW_tCVVqnSvY2OLM"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "406224697890-6mq3omj25ujvlpfel7ehg8chnsvmd24a.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

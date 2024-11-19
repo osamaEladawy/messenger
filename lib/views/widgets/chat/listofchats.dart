@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:messenger_app/data/models/user_model.dart';
+import 'package:messenger_app/features/user/data/remote/models/user_model.dart';
 import 'package:messenger_app/views/screens/single_chat.dart';
 import 'package:messenger_app/views/widgets/chat/custom_stack.dart';
 
-import '../../../data/static/my_data.dart';
 
 class ListOfChats extends StatelessWidget {
   final List<UserModel> listOfUsers;
@@ -33,13 +32,13 @@ class ListOfChats extends StatelessWidget {
                 isOnline: listOfUsers[index].isOnline,
               ),
               title: Text("${listOfUsers[index].username}"),
-              subtitle: Text(dataForUsers[index]["message"]),
+              subtitle: Text("message"),
               trailing: IconButton(
                 onPressed: () {},
                 icon: Icon(
-                  dataForUsers[index]['read'] == false
-                      ? Icons.check_circle_outline
-                      : Icons.circle,
+                  // dataForUsers[index]['read'] == false
+                      // ? Icons.check_circle_outline
+                       Icons.circle,
                   color: Colors.grey.withOpacity(0.5),
                   size: 20,
                 ),

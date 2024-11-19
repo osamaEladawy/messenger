@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
           onTap: widget.onTap, title: "Sign Up", isHaveAccount: false),
       body: PopScope(
         canPop: false,
-        onPopInvoked: (b) {
+        onPopInvokedWithResult: (b,r) {
           showDialog(
             context: context,
             builder: (context) => const ExitDialog(),
@@ -47,9 +47,7 @@ class _LoginPageState extends State<LoginPage> {
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Column(
                 children: [
-                  const SizedBox(
-                    height: 70,
-                  ),
+                  const SizedBox(height: 70),
                   const Text(
                     "Messenger",
                     style: TextStyle(
@@ -57,9 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(
-                    height: 15,
-                  ),
+                  const SizedBox(height: 15),
                   Container(
                     alignment: Alignment.center,
                     height: 150,
@@ -155,7 +151,7 @@ class _LoginPageState extends State<LoginPage> {
                           TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [

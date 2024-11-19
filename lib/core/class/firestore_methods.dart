@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:messenger_app/data/models/chat_model.dart';
-import 'package:messenger_app/data/models/message_model.dart';
+import 'package:messenger_app/features/chat/data/remote/models/chat_model.dart';
+import 'package:messenger_app/features/chat/data/remote/models/message_model.dart';
 
 class FireStoreMethods {
   final FirebaseAuth _auth = FirebaseAuth.instance;
